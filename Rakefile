@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Testapp::Application.load_tasks
+BookMyGround::Application.load_tasks
