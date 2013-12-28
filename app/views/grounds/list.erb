@@ -1,0 +1,16 @@
+<html lang='en'>
+<head><title>Movie Tickets, Plays, Sports, Music Concerts, Theatre BookMyShow</title>
+<% if @grounds.blank? %>
+<p>There are no grounds available</p>
+<% else %>
+<title>Movie Tickets, Plays, Sports, Music Concerts, Theatre BookMyShow</title>
+<p>These are the current grounds in our system</p>
+<ul id="grounds">
+<% @grounds.each do |c| %>
+<li><%= link_to c.name, {:action => 'show', :id => c.id} -%></li>
+<% end %>
+</ul>
+<% end %>
+<p><%= link_to "Add new Ground", {:action => 'new' }%></p>
+</head>
+</html>

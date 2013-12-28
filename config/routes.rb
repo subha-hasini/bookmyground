@@ -49,10 +49,11 @@ BookMyGround::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   BookMyGround::Application.routes.draw do
- 	 root to: 'books#list'
- 	 get 'books/new', to: 'books#new'
+ 	 root to: 'grounds#list'
+ 	 get 'grounds/new', to: 'grounds#new'
+   get 'grounds/show', to: 'grounds#show'
  	 #post to: 'books#create'
- 	 post 'books/list', to: 'books#create'
+ 	 post 'grounds/create', to: 'grounds#create'
   end
 
   # See how all your routes lay out with "rake routes"

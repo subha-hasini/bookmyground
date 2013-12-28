@@ -1,0 +1,22 @@
+<h1>Add new Ground</h1>
+
+<%= form_tag :action => 'create' %>
+<p><label for="name">Ground Name</label>:
+<%= text_field 'ground','name' %></p>
+<p><label for="ground_price">Price</label>:
+<%= text_field 'ground','price'%></p>
+
+<p><label for="ground_type">Type</label>:
+<%= text_field 'ground','ground_type'%></p>
+
+<p><label for="bdate">Date</label>:
+<%= date_select(:ground, :bdate, { :order => [:month, :day], :use_short_month => true }) %>
+
+
+<p><label for="ground_session">Session</label>:	
+<%= text_field 'ground','session'%></p>
+
+<p><label for="ground_city">City</label>:
+<%= collection_select(:ground,:city_id,@cities,:id,:name) %></p>
+<%= submit_tag "Create"%>
+<%= link_to 'Back',{:action=>'list'}%>

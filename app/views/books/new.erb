@@ -1,11 +1,11 @@
 <h1>Add new book</h1>
 <%= form_tag :action => 'create' %>
-<p><label for="book_title">Title</label>:
+<p><label for="title">Title</label>:
 <%= text_field 'book','title' %></p>
 <p><label for="book_price">Price</label>:
 <%= text_field 'book','price'%></p>
 <p><label for="book_subject">Subject</label>:
-<%= text_field 'subject','subject'%></p>
+<%= collection_select(:book,:subject_id,@subjects,:id,:name) %></p>
 <p><label for="book_description">Description</label><br/>
 <%= text_area 'book','description'%></p>
 <%= submit_tag "Create"%>

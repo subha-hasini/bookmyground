@@ -7,11 +7,13 @@ class BooksController < ApplicationController
    end
    def new
       @book = Book.new
-	@subjects = Subject.find(:all)
+	   @subjects = Subject.find(:all)
 		Rails.logger.debug "INSIDE"
    end
    def create
-      @book = Book.new(params[:books])
+      @book = Book.new(params[:book])
+      Rails.logger.debug "KKKKKKKK"
+      Rails.logger.debug @book.title
       if @book.save
 		Rails.logger.debug "INSIDE IF"
             redirect_to :action => 'list'
@@ -27,7 +29,7 @@ class BooksController < ApplicationController
    end
    def update
       @book = Book.find(params[:id])
-      if @books.update_attributes(params[:books])
+      if @books.update_attributes(params[:book])
          redirect_to :action => 'show', :id => @books
       else
          @subjects = Subject.find(:all)
