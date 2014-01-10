@@ -1,16 +1,68 @@
-<html lang='en'>
-<head><title>Movie Tickets, Plays, Sports, Music Concerts, Theatre BookMyShow</title>
-<% if @grounds.blank? %>
-<p>There are no grounds available</p>
-<% else %>
-<title>Movie Tickets, Plays, Sports, Music Concerts, Theatre BookMyShow</title>
-<p>These are the current grounds in our system</p>
-<ul id="grounds">
-<% @grounds.each do |c| %>
-<li><%= link_to c.name, {:action => 'show', :id => c.id} -%></li>
-<% end %>
-</ul>
-<% end %>
-<p><%= link_to "Add new Ground", {:action => 'new' }%></p>
+<html>
+<head>
+<body bgcolor="#BCFFFD">
+			
+<span style="font-family: Arial, sans-serif; color: #333; font-size: 16px;font-weight:bold;">
+</span><br/>
+  <table cellspacing="0" cellpadding="0"  bgcolor="##008A9B" style="border-radius: 2px; box-shadow:0px 0px 3px #ccc; margin-right: 20px;">
+  	<tbody>
+  		<tr>
+		<td style="border-radius: 2px; box-shadow:0px 0px 3px #ccc; ">	<p><%= link_to "Post Ground Availability", {:action => 'new' }%></p> </td>
+		</tr>
+	</tbody>
+  </table>
+  <table cellspacing="0" cellpadding="0"  bgcolor="#00DBCD" style="border-radius: 2px; box-shadow:0px 0px 3px #ccc; margin-right: 10px;">
+        <tbody>
+        
+          	<tr>     
+				<% if @grounds.blank? %>
+				<p>There are no grounds available</p> </td>
+				<% else %>
+				<td height:50px; text-align:center;>
+					<h1><p>Available grounds for this week</p><h1>
+					<ul id="grounds">
+					<% @grounds.each do |c| %>
+					<li><%= link_to c.name, {:action => 'show', :id => c.id} -%> <%= link_to 'Book now', {:action => 'booknow', :id => c.id}%></li>
+					<% end %>
+					</ul>
+				</td>
+				<!--td bgcolor="#BCFFFD"> </td-->				
+				<td>
+					<h1><p>Available grounds for NEXT week</p><h1>
+					<ul id="grounds">
+					<% @grounds.each do |c| %>
+					<li><%= link_to c.name, {:action => 'show', :id => c.id} -%></li>
+					<% end %>
+					</ul>
+				</td>
+				<% end %>
+			</tr>
+        </tbody>
+   </table>
+   
+ </body>
 </head>
-</html>
+  </html>
+  <style type="text/css">
+
+table 
+{
+width:70%;
+text-align:center;
+}
+th
+{
+height:75px;
+}
+td{width:70%;}		
+h1
+{
+color:green;
+}
+
+li
+{
+font-family:"Times New Roman";
+font-size:15px;
+}
+			</style>

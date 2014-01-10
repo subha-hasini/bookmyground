@@ -1,0 +1,21 @@
+<% if @grounds.blank? %>
+				<p>There are no grounds available</p> </td>
+				<% else %>
+				<td height:50px; text-align:center;>
+					<h1><p>Available grounds for this week</p><h1>
+					<ul id="grounds">
+					<% @grounds.each do |c| %>
+					<li><%= link_to c.name, {:action => 'show', :id => c.id} -%> <%= link_to 'Book now', {:action => 'booknow', :id => c.id}%></li>
+					<% end %>
+					</ul>
+				</td>
+				<!--td bgcolor="#BCFFFD"> </td-->				
+				<td>
+					<h1><p>Available grounds for NEXT week</p><h1>
+					<ul id="grounds">
+					<% @grounds.each do |c| %>
+					<li><%= link_to c.name, {:action => 'show', :id => c.id} -%></li>
+					<% end %>
+					</ul>
+				</td>
+				<% end %>

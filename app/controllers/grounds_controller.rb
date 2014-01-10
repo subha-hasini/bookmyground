@@ -5,16 +5,18 @@ class GroundsController < ApplicationController
    def show
       @ground = Ground.find(params[:id])
    end
+   def booknow
+      @ground = Ground.find(params[:id])
+      render :action => 'booknow'
+   end
    def new
       @ground = Ground.new
 	   @cities = City.find(:all)
-		Rails.logger.debug "INSIDE"
+		Rails.logger.debug "INSIDE NEW"
    end
    def create
+      Rails.logger.debug "INSIDE CREATE"
       @ground = Ground.new(params[:ground])
-      Rails.logger.debug "KKKKKKKK"
-      Rails.logger.debug @ground.bdate
-      Rails.logger.debug @ground.name
       if @ground.save
 		Rails.logger.debug "INSIDE IF"
             redirect_to :action => 'list'
